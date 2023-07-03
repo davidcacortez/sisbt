@@ -21,7 +21,7 @@ class CreateCompanies < ActiveRecord::Migration[7.0]
       t.string   :carry
       t.boolean  :status
       
-      t.references :city, foreign_key: 'city_id'
+      t.references :user, foreign_key: 'user_id'
       t.references :neighborhood, foreign_key: 'neighborhood_id'
       t.timestamps
     end

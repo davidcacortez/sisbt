@@ -43,12 +43,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_232459) do
     t.string "phone"
     t.string "carry"
     t.boolean "status"
-    t.bigint "city_id"
+    t.bigint "user_id"
     t.bigint "neighborhood_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["city_id"], name: "index_companies_on_city_id"
     t.index ["neighborhood_id"], name: "index_companies_on_neighborhood_id"
+    t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
   create_table "countries", force: :cascade do |t|
@@ -97,8 +97,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_02_232459) do
   end
 
   add_foreign_key "cities", "states"
-  add_foreign_key "companies", "cities"
   add_foreign_key "companies", "neighborhoods"
+  add_foreign_key "companies", "users"
   add_foreign_key "neighborhoods", "cities"
   add_foreign_key "states", "countries"
 end
